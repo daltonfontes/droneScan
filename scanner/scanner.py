@@ -5,6 +5,10 @@ import threading
 import time
 import json
 from datetime import datetime
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 class Scanner:
     def __init__(self, ws_url: str, camera_index: int = 0, shelf_id: int = 1):
@@ -113,7 +117,13 @@ class Scanner:
 
 
 if __name__ == "__main__":
-    scanner = Scanner("ws://localhost:3001/")
+    env_url = os.getenv("WEBSOCKET_URL")
+
+    if env_url is None or "":
+        print("A variável de ambiente não foi configurada.")
+        exit(1)
+
+    scanner = Scanner(os.getenv("WEBSOCKET_URL"))
     try:
         scanner.run()
     except KeyboardInterrupt:
