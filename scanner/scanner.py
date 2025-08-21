@@ -119,11 +119,11 @@ class Scanner:
 if __name__ == "__main__":
     env_url = os.getenv("WEBSOCKET_URL")
 
-    if env_url is None or "":
+    if env_url is None or env_url == "":
         print("A variável de ambiente não foi configurada.")
         exit(1)
 
-    scanner = Scanner(os.getenv("WEBSOCKET_URL"))
+    scanner = Scanner(env_url)
     try:
         scanner.run()
     except KeyboardInterrupt:
