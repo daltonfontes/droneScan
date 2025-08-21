@@ -1,3 +1,42 @@
+# ------------------------
+# OS / Editores
+# ------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.suo
+*.user
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.orig
+*.bak
+
+# ------------------------
+# Logs / temporários
+# ------------------------
+logs/
+*.log
+*.out
+*.pid
+*.pid.lock
+*.gz
+*.seed
+*.tmp
+*.temp
+*.swp
+*.swo
+*.tsbuildinfo
+coverage/
+
+# ------------------------
+# Node / package managers
+# (mantendo lockfiles fora, como você já fazia)
+# ------------------------
 node_modules/
 npm-debug.log*
 yarn-debug.log*
@@ -6,63 +45,56 @@ pnpm-debug.log*
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
-.next/
-out/
-*.next/
-.next/static/
-logs/
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-*.seed
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+
+# ------------------------
+# Docker
+# ------------------------
+.docker/
+docker-compose.override.yml
+
+# ------------------------
+# Variáveis de ambiente
+# ------------------------
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-.DS_Store
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-*.user
-dist/
-build/
-coverage/
-*.tsbuildinfo
-docker-compose.override.yml
-.docker/
-*.pid
-*.seed
-*.pid.lock
-*.tmp
-*.temp
-*.swp
-*.swo
-*.bak
-*.orig
+# Permite fornecer um exemplo versionado
+!.env.example
+
+# ===================================================================
+# Projetos
+# ===================================================================
+
+# ---- dashboard-app (Next.js) ----
+dashboard-app/node_modules/
+dashboard-app/.next/
+dashboard-app/out/
+dashboard-app/.next/static/
+dashboard-app/.turbo/
+dashboard-app/.vercel/
+dashboard-app/.cache/
+dashboard-app/.eslintcache
+dashboard-app/dist/
+dashboard-app/build/
+
+# ---- simulation (genérico; inclui padrões úteis p/ Python) ----
+simulation/node_modules/
 simulation/tmp/
 simulation/cache/
 simulation/.cache/
 simulation/build/
 simulation/dist/
-dashboard/.next/
-dashboard/out/
-dashboard/dist/
-dashboard/cache/
+simulation/__pycache__/
+simulation/.pytest_cache/
+simulation/.mypy_cache/
+simulation/.venv/
+simulation/venv/
+
+# ---- websocket (Node/TS) ----
+websocket/node_modules/
 websocket/.cache/
 websocket/dist/
 websocket/tmp/
+websocket/build/
