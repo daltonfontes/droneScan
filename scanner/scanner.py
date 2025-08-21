@@ -22,13 +22,9 @@ class Scanner:
         
         payload = {"type": "hello", "role": "sim"}
         ws.send(json.dumps(payload))
-        print(ws.recv())
         
     def on_close(self, ws: websocket.WebSocket):
         print("Conexão fechada com o websocket")
-    
-    def on_message(self, ws: websocket.WebSocket):
-        print(ws.recv())
         
     def connect(self):
         while self.running:
@@ -36,8 +32,7 @@ class Scanner:
                 self.ws = websocket.WebSocketApp(
                     self.ws_url,
                     on_open=self.on_open,
-                    on_close=self.on_close,
-                    on_message=self.on_message
+                    on_close=self.on_close
                 )
                 self.ws.run_forever()
             except Exception as e:
